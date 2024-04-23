@@ -1,0 +1,41 @@
+
+
+<!-- Модальное окно 1 изменение аккаунта -->
+<div class="modal fade text-light" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content  bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Изменение Аккаунта</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'edit_account' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ edit_account.as_p }}
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно 2 изменение профиля -->
+<div class="modal fade text-light" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content  bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel2">Изменение Аккаунта</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'edit_profile' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ edit_profile.as_p }}
+        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

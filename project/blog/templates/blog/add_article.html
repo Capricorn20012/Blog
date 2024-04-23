@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+
+
+<div class="d-flex justify-content-center">
+    {% if request.user.is_authenticated %}
+    <div class="col-6 card p-4 bg-dark border-primary">
+        <h3 class="text-center text-light">{{ title }}</h3>
+        <form class="text-light" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-between">
+            <button class="btn btn-success" type="submit">
+                {% if 'update' in request.path %}
+                Изменить статью
+                {% else %}
+                Создать статью
+                {% endif %}
+            </button>
+            <a href="{{ article.get_absolute_url }}" class="btn btn-warning">Назад</a>
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <h3><a href="{% url 'login' %}">Войдите в аккаунт</a></h3>
+    {% endif %}
+</div>
+
+
+{% endblock main %}
